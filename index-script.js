@@ -10,10 +10,15 @@ var h5Text = document.createTextNode('This is made with DOM');
 h5.appendChild(h5Text);
 body.appendChild(h5);
 
+//Main div
+var mainDiv = document.createElement('div');
+mainDiv.setAttribute('id', 'mainDivId');
+body.appendChild(mainDiv);
+
 //Membuat div untuk list
 var divList =  document.createElement('div');
 divList.setAttribute('id', 'divListAttrId');
-body.appendChild(divList);
+mainDiv.appendChild(divList);
 
 var h2 = document.createElement("h2");
 var h2Text3 = document.createTextNode('The current list is empty!');
@@ -68,15 +73,20 @@ buttonSubmit.addEventListener('click',function(){
 
         document.getElementById('listTitle').innerHTML = 'List!';
 
+        
         var buttonReset = document.createElement('button');
         var buttonText2 = document.createTextNode('reset');
         buttonReset.appendChild(buttonText2);
-        divList.appendChild(buttonReset);
+        buttonReset.setAttribute('id', 'buttonResetId')
+
+        // If reset button already exist within div list, do not add again.
+        if(!document.getElementById('mainDivId').contains(document.getElementById('buttonResetId'))){
+            mainDiv.appendChild(buttonReset);
+        }
 
         buttonReset.addEventListener('click', function(){
             window.location.reload();    
         });
-
     }
 });
 divAddList.appendChild(buttonSubmit);

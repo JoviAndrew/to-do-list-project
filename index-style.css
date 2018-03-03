@@ -3,6 +3,17 @@ body{
 }
 
 #divListAttrId{
-    border: 1px solid grey;
-    margin: 100px
+    margin: 50px;
+    position: relative;
+}
+
+#mainDivId{
+    border : 1px solid grey;
+    margin : 100px;
+    position: relative;
+}
+
+#buttonResetId{
+    position: relative;
+    bottom: 20px;
 }
